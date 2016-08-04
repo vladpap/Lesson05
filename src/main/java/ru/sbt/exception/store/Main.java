@@ -4,12 +4,19 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Store store = new FileStore();
-//        store.save("Hello !!!\n\r");
-        List<String> allString = store.getAll();
-        System.out.println();
+//        Store storeFile = new FileStore();
+//        storeFile.save("Hello !!!\n\r");
+//        printList(storeFile.getAll());
+
+        Store storeDB = new DataBaseStore();
+        storeDB.save("Hello DB");
+        printList(storeDB.getAll());
+    }
+
+    private static void printList(List<String> allString) {
         for (String s : allString) {
             System.out.println(s);
         }
     }
+
 }

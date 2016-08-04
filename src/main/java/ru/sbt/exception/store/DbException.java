@@ -1,6 +1,7 @@
 package ru.sbt.exception.store;
 
 public class DbException extends StoreException {
+
     public DbException(String message) {
         super(message);
     }

@@ -7,7 +7,7 @@ public interface Db extends AutoCloseable {
 
     void insert(String line) throws SQLException;
 
-    List<String> selectAll(String line) throws SQLException;
+    List<String> selectAll() throws SQLException;
 
 
 }

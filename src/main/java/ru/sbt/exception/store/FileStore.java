@@ -16,13 +16,13 @@ import static java.nio.file.StandardOpenOption.CREATE;
 public class FileStore implements Store {
     private static final String fileName = "filestore.txt";
     private static final Path path = Paths.get("./" + fileName);
+
     public FileStore() {
     }
 
     public void save(String t) {
 
         byte data[] = t.getBytes();
-//        Path path = new File(fileName).toPath;
 
         try (OutputStream out = new BufferedOutputStream(
                 Files.newOutputStream(path, CREATE, APPEND))) {
@@ -33,6 +33,7 @@ public class FileStore implements Store {
     }
 
     public List<String> getAll() {
+
         List<String> strings;
 
         try {

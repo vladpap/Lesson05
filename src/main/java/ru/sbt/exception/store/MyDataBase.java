@@ -16,17 +16,16 @@ public class MyDataBase implements Db {
     @Override
     public void insert(String line) throws SQLException {
         if (isRandom()) {
-            throw SQLTimeoutException();
+            throw new SQLSyntaxErrorException();
         } else {
             listDb.add(line);
         }
     }
 
     @Override
-    public List<String> selectAll(String line) throws SQLException {
+    public List<String> selectAll() throws SQLException {
         if (isRandom()) {
-            throw SQLNonTransientException;
-            return null;
+            throw new SQLNonTransientException();
         } else {
             return new ArrayList<>(listDb);
         }
@@ -35,13 +34,13 @@ public class MyDataBase implements Db {
     @Override
     public void close() throws Exception {
         if (isRandom()) {
-            throw SQLTimeoutException;
+            throw new SQLTimeoutException();
         }
     }
 
     private boolean isRandom() {
         Date date = new Date();
-        if (date % 2 == 0) {
+        if (date.getTime() % 2 == 0) {
             return true;
         } else {
             return false;
